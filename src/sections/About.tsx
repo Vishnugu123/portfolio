@@ -15,12 +15,21 @@ const badges = [
   { label: "Quick Learner", color: "bg-indigo-50 text-indigo-700 border-indigo-200 dark:bg-indigo-950/40 dark:text-indigo-300 dark:border-indigo-800" },
 ];
 
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
+import type { Variants } from "framer-motion";
+
+const itemVariants: Variants = {
+  hidden: {
+    opacity: 0,
+    y: 20,
+  },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, delay: i * 0.08, ease: "easeOut" },
+    transition: {
+      duration: 0.5,
+      delay: i * 0.08,
+      ease: "easeOut" as const,
+    },
   }),
 };
 

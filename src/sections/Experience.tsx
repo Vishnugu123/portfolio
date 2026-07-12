@@ -7,6 +7,16 @@ import SectionWrapper from "@/components/SectionWrapper";
 import { EXPERIENCE_TIMELINE } from "@/data/experience";
 import { cn } from "@/lib/utils";
 
+const iconMap = {
+  GraduationCap: Icons.GraduationCap,
+  Brain: Icons.Brain,
+  Briefcase: Icons.Briefcase,
+  Trophy: Icons.Trophy,
+  Rocket: Icons.Rocket,
+  Code2: Icons.Code2,
+  Circle: Icons.Circle,
+} as const;
+
 export default function Experience() {
   return (
     <SectionWrapper id="experience" className="py-24 bg-white dark:bg-slate-900">
@@ -32,7 +42,7 @@ export default function Experience() {
 
           <div className="space-y-12">
             {EXPERIENCE_TIMELINE.map((item, index) => {
-              const Icon = (Icons as Record<string, LucideIcon>)[item.icon] || Icons.Circle;
+              const Icon = iconMap[item.icon as keyof typeof iconMap] ?? iconMap.Circle;
               return (
                 <motion.div
                   key={item.id}
