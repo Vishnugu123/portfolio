@@ -79,9 +79,12 @@ export interface LeetCodeStats {
   easyTotal: number;
   mediumTotal: number;
   hardTotal: number;
+  totalAll: number;
   acceptanceRate: number;
   ranking: number;
   contributionPoints: number;
   streak: number;
+  totalActiveDays: number;
   submissionCalendar?: Record<string, number>;
+  isFallback?: boolean;
 }
