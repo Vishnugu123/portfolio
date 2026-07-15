@@ -66,7 +66,7 @@ export async function GET(req: NextRequest) {
         method: "POST",
         headers,
         body: JSON.stringify({ query: STATS_QUERY, variables: { username } }),
-        cache : "no-store", // cache for 1 hour
+        next: { revalidate: 300 }, // cache for 1 hour
       }),
       fetch(LEETCODE_GRAPHQL, {
         method: "POST",
@@ -75,7 +75,7 @@ export async function GET(req: NextRequest) {
           query: CALENDAR_QUERY,
           variables: { username, year: new Date().getFullYear() },
         }),
-        cache : "no-store",
+        next: { revalidate: 300 },
       }),
     ]);
 
