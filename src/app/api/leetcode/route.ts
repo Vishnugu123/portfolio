@@ -1,3 +1,4 @@
+import { Store } from "lucide-react";
 import { NextRequest, NextResponse } from "next/server";
 
 const LEETCODE_GRAPHQL = "https://leetcode.com/graphql";
@@ -65,7 +66,7 @@ export async function GET(req: NextRequest) {
         method: "POST",
         headers,
         body: JSON.stringify({ query: STATS_QUERY, variables: { username } }),
-        next: { revalidate: 3600 }, // cache for 1 hour
+        cache : "no-store", // cache for 1 hour
       }),
       fetch(LEETCODE_GRAPHQL, {
         method: "POST",
@@ -74,7 +75,7 @@ export async function GET(req: NextRequest) {
           query: CALENDAR_QUERY,
           variables: { username, year: new Date().getFullYear() },
         }),
-        next: { revalidate: 3600 },
+        cache : "no-store",
       }),
     ]);
 
