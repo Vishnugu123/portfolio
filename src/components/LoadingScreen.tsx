@@ -45,7 +45,7 @@ export default function LoadingScreen() {
               className="text-center"
             >
               <p className="text-white font-semibold text-lg tracking-wide">
-                Loading Portfolio
+                Namaste!!!
               </p>
             </motion.div>
 
