@@ -86,17 +86,25 @@ export default function Contact() {
   try {
     setFormStatus("loading");
 
-    const response = await fetch("/api/contact", {
+    const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        Accept: "application/json",
       },
-      body: JSON.stringify(formData),
+      body: JSON.stringify({
+        access_key: "52f6be2b-5550-45e7-bd21-8786178c9f5b",
+        name: formData.name,
+        email: formData.email,
+        message: formData.message,
+        subject: "New Portfolio Contact",
+        from_name: "Portfolio Website",
+      }),
     });
 
     const data = await response.json();
 
-    if (!response.ok || !data.success) {
+    if (!data.success) {
       throw new Error(data.message || "Failed to send message");
     }
 
@@ -239,7 +247,7 @@ export default function Contact() {
                     type="text"
                     value={formData.name}
                     onChange={(e) => setFormData((p) => ({ ...p, name: e.target.value }))}
-                    placeholder="Jane Smith"
+                    placeholder="Your Name"
                     className={cn(
                       "w-full px-4 py-3 rounded-xl border text-sm bg-slate-50 dark:bg-slate-800",
                       "text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500",
@@ -270,7 +278,7 @@ export default function Contact() {
                     type="email"
                     value={formData.email}
                     onChange={(e) => setFormData((p) => ({ ...p, email: e.target.value }))}
-                    placeholder="jane@company.com"
+                    placeholder="your@company.com"
                     className={cn(
                       "w-full px-4 py-3 rounded-xl border text-sm bg-slate-50 dark:bg-slate-800",
                       "text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500",

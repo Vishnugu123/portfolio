@@ -4,7 +4,7 @@ export const STATS: Stat[] = [
   {
     id: "projects",
     label: "Projects Built",
-    value: 10,
+    value: 5,
     suffix: "+",
     icon: "FolderGit2",
     description: "Production-ready applications",

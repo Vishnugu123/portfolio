@@ -66,7 +66,7 @@ export async function GET(req: NextRequest) {
         method: "POST",
         headers,
         body: JSON.stringify({ query: STATS_QUERY, variables: { username } }),
-        next: { revalidate: 300 }, // cache for 1 hour
+        next: { revalidate: 300 }, // cache for 5 min
       }),
       fetch(LEETCODE_GRAPHQL, {
         method: "POST",

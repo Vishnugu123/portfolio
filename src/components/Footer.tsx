@@ -31,9 +31,7 @@ export default function Footer() {
 
           {/* Copyright */}
           <p className="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-1.5 order-last md:order-none">
-            © {currentYear} {SITE_CONFIG.name}. Built with{" "}
-            <Heart className="w-3 h-3 text-rose-500 fill-rose-500" />
-            
+            © {currentYear} {SITE_CONFIG.name}.
           </p>
 
           {/* Social links */}
